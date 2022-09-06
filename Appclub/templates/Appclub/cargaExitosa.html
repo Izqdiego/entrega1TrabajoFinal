@@ -1,0 +1,17 @@
+{% extends "Appclub/padre.html" %}
+{% load static %}
+
+{% block titulo%}
+
+<h1 class="display-5 fw-bold">CARGA EXITOSA</h1>
+{% endblock%}
+{%block descripcion%}
+<p class="fs-4">Podes volver al inicio o cargar mas datos</p>
+{% endblock%}
+
+{% block cuerpo_de_pagina %}
+<a class="btn btn-primary btn-lg" href="{% url 'inicio' %}">Volver a inicio</a>
+<a class="btn btn-primary btn-lg" href="{% url 'socio' %}">Cargar nuevo socio</a>
+<a class="btn btn-primary btn-lg" href="{% url 'disciplina' %}">Cargar nueva disciplina</a>
+<a class="btn btn-primary btn-lg" href="{% url 'profe' %}">Cargar nuevo profesor</a>
+{% endblock %}

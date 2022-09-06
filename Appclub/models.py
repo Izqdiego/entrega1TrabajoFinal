@@ -18,7 +18,7 @@ class Socio(models.Model):
     email=models.EmailField()
     
     def __str__(self):
-        return self.nombre +" "+ self.apellido+" "+self.dni
+        return self.nombre +" "+ self.apellido+" "+str(self.dni)
     
 class Profesor(models.Model):
     nombre=models.CharField(max_length=50)
