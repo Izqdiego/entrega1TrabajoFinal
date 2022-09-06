@@ -2,5 +2,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def inicioApp(request):
+def inicio(request):
     return render (request, "Appclub/index.html")
