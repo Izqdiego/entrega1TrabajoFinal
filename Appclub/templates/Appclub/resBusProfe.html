@@ -1,0 +1,34 @@
+{% extends "Appclub/padre.html" %}
+{% load static %}
+
+{% block titulo%}
+
+<h1 class="display-5 fw-bold">BUSCAR SOCIO</h1>
+{% endblock%}
+{%block descripcion%}
+<p class="fs-4">Puedes buscar por Apellido o dni</p>
+{% endblock%}
+
+{% block cuerpo_de_pagina %}
+<h2>Resultado de la busqueda</h2>
+{% if documentos %}
+<ul>
+    {% for socio in documentos %}
+        <li>{{socio.apellido}}</li>
+        <li>{{socio.nombre}}</li>
+        <li>{{socio.dni}}</li>
+        <br>
+    {% endfor %}
+</ul>
+{%else%}
+<p>NO HAY RESULTADOS EN LA BUSQUEDA</p>
+{%endif%}
+<br>
+<br>
+<a class="btn btn-primary btn-lg" href="{% url 'inicio' %}">Volver a inicio</a>
+<a class="btn btn-primary btn-lg" href="{% url 'buscarSocio' %}">Buscar nuevo socio</a>
+<a class="btn btn-primary btn-lg" href="{% url 'disciplina' %}">Buscar nueva disciplina</a>
+<a class="btn btn-primary btn-lg" href="{% url 'profe' %}">Buscar nuevo profesor</a>
+
+
+{% endblock %}

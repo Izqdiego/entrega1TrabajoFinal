@@ -57,4 +57,21 @@ def disciplina(request):
     else:
         formulario=FormDisciplina()
         return render (request, "Appclub/cargaDisciplina.html", { "formulario":formulario})
-            
+#BUSQUEDA DE SOCIO 
+def buscaSocio(request):
+    return render(request, "Appclub/buscaSocio.html")
+
+def buscarSocio(request):
+    dni=request.GET["dni"]
+    documentos=Socio.objects.filter(dni=dni)
+    return render(request, "Appclub/resBusSocio.html", {"documentos":documentos})
+
+# BUSQUEDA DE PROFESOR
+
+def buscaProfe(request):
+    return render (request, "Appclub/buscaProfe.html")
+
+def buscarProfe(request):
+    apellido=request.GET["apellido"]
+    apellidos=Socio.objects.filter(apellido=apellido)
+    return render(request, "Appclub/resBusProfe.html", {"apellidos":apellidos})

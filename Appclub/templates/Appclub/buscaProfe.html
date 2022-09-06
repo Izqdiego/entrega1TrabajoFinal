@@ -1,0 +1,23 @@
+{% extends "Appclub/padre.html" %}
+{% load static %}
+
+{% block titulo%}
+
+<h1 class="display-5 fw-bold">BUSCAR PROFESOR</h1>
+{% endblock%}
+{%block descripcion%}
+<p class="fs-4">Puedes buscar por apellido</p>
+{% endblock%}
+
+{% block cuerpo_de_pagina %}
+    <form action="{% url 'buscar' %}" method="GET"> 
+        <h2>Ingresar apellido para buscar</h2>
+        <input type="text" name="apellido" id="apellido">
+        <input type="submit" value="Buscar">
+        <br>
+        <br>
+        <br>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "Appclub/padre.html" %}
+{% load static %}
+
+{% block titulo%}
+
+<h1 class="display-5 fw-bold">BUSCAR SOCIO</h1>
+{% endblock%}
+{%block descripcion%}
+<p class="fs-4">Puedes buscar por dni</p>
+{% endblock%}
+
+{% block cuerpo_de_pagina %}
+    <form action="{% url 'buscar' %}" method="GET"> 
+        <h2>Ingresar dni para buscar</h2>
+        <input type="number" name="dni" id="dni">
+        <input type="submit" value="Buscar">
+        <br>
+        <br>
+        <br>
+    </form>
+
+
+{% endblock %}
