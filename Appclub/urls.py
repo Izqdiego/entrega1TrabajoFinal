@@ -3,5 +3,6 @@ from Appclub.views import *
 
 
 urlpatterns = [
-    path("", inicio),
+    path("", inicio, name="inicio"),
+    path("cargaSocio", socio, name="socio")
 ]
