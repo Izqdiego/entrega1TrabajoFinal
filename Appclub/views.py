@@ -3,11 +3,10 @@ from django.http import HttpResponse
 from .models import *
 from Appclub.forms import *
 
-# Create your views here.
-
+# INICIO
 def inicio(request):
     return render (request, "Appclub/inicio.html")
-
+# CARGA SOCIO
 def socio(request):
     if request.method=="POST":
     
@@ -26,7 +25,7 @@ def socio(request):
     else:
         formulario=FormSocio()
         return render (request, "Appclub/cargaSocio.html", { "formulario":formulario})
-    
+# CARGA PROFESOR
 def profe(request):
     if request.method=="POST":
         profe=FormProfesor(request.POST)
@@ -43,7 +42,7 @@ def profe(request):
     else:
         formulario=FormProfesor()
         return render (request, "Appclub/cargaProfe.html", { "formulario":formulario}) 
-    
+# CARGA DISCIPLINA
 def disciplina(request):
     if request.method=="POST":
         disc=FormDisciplina(request.POST)
@@ -60,18 +59,30 @@ def disciplina(request):
 #BUSQUEDA DE SOCIO 
 def buscaSocio(request):
     return render(request, "Appclub/buscaSocio.html")
-
 def buscarSocio(request):
-    dni=request.GET["dni"]
-    documentos=Socio.objects.filter(dni=dni)
-    return render(request, "Appclub/resBusSocio.html", {"documentos":documentos})
-
+    if not(request.GET["dni"]):
+        return render(request, "Appclub/resBusSocio.html",)
+    else:
+        dni=request.GET["dni"]
+        documentos=Socio.objects.filter(dni=dni)
+        return render(request, "Appclub/resBusSocio.html", {"documentos":documentos})
 # BUSQUEDA DE PROFESOR
-
 def buscaProfe(request):
     return render (request, "Appclub/buscaProfe.html")
-
 def buscarProfe(request):
-    apellido=request.GET["apellido"]
-    apellidos=Socio.objects.filter(apellido=apellido)
-    return render(request, "Appclub/resBusProfe.html", {"apellidos":apellidos})
+    if not(request.GET["apellido"]):
+        return render(request, "Appclub/resBusProfe.html",)
+    else:
+        apellido=request.GET["apellido"]
+        apellidos=Profesor.objects.filter(apellido=apellido)
+        return render(request, "Appclub/resBusProfe.html", {"apellidos":apellidos})
+# BUSQUEDA DISCIPLINA
+def buscaDisciplina(request):
+    return render (request,"Appclub/buscaDisciplina.html")
+def buscarDisciplina(request):
+    if not(request.GET["nombre"]):
+        return render(request, "Appclub/resBusDisc.html",)
+    else:
+        nombre=request.GET["nombre"]
+        nombres=Disciplina.objects.filter(nombre=nombre)
+        return render(request, "Appclub/resBusDisc.html", {"nombres":nombres})

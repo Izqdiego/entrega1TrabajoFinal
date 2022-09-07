@@ -3,16 +3,17 @@
 
 {% block titulo%}
 
-<h1 class="display-5 fw-bold">BUSCAR SOCIO</h1>
+<h1 class="display-5 fw-bold">BUSCAR DISCIPLINA</h1>
 {% endblock%}
 {%block descripcion%}
-<p class="fs-4">Puedes buscar por dni</p>
+<p class="fs-4">Ingresar nombre de disciplina para buscar</p>
 {% endblock%}
 
 {% block cuerpo_de_pagina %}
-    <form action="{% url 'buscar' %}" method="GET"> 
-        <h2>Ingresar dni para buscar</h2>
-        <input type="number" name="dni" id="dni">
+    <form action="{% url 'buscarDisciplina' %}" method="GET"> 
+        <h2>Ingresar nombre de disciplina para buscar</h2>
+        <br>
+        <input type="text" name="nombre" id="nombre">
         <input type="submit" value="Buscar">
         <br>
         <br>

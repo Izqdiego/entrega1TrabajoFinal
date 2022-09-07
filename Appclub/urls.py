@@ -11,4 +11,6 @@ urlpatterns = [
     path("resBusSocio", buscarSocio, name="buscarSocio"),
     path("buscaProfe", buscaProfe, name="buscaProfe"),
     path("resBusProfe", buscarProfe, name="buscarProfe"),
+    path("buscaDisciplina", buscaDisciplina, name="buscaDisciplina"),
+    path("resBusDisciplina", buscarDisciplina, name="buscarDisciplina"),
 ]

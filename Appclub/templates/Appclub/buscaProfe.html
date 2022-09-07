@@ -10,8 +10,9 @@
 {% endblock%}
 
 {% block cuerpo_de_pagina %}
-    <form action="{% url 'buscar' %}" method="GET"> 
+    <form action="{% url 'buscarProfe' %}" method="GET"> 
         <h2>Ingresar apellido para buscar</h2>
+        <br>
         <input type="text" name="apellido" id="apellido">
         <input type="submit" value="Buscar">
         <br>

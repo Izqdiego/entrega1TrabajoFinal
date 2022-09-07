@@ -3,21 +3,18 @@
 
 {% block titulo%}
 
-<h1 class="display-5 fw-bold">BUSCAR SOCIO</h1>
-{% endblock%}
-{%block descripcion%}
-<p class="fs-4">Puedes buscar por Apellido o dni</p>
+<h1 class="display-5 fw-bold">RESULTADO DE LA BUSQUEDA</h1>
 {% endblock%}
 
 {% block cuerpo_de_pagina %}
 
-{% if apellidos %}
+{% if nombres %}
+
 <h2>Resultado de la busqueda</h2>
 <ul>
-    {% for profesor in apellidos %}
-        <li>{{profesor.apellido}}</li>
-        <li>{{profesor.nombre}}</li>
-        <li>{{profesor.disciplina}}</li>
+    {% for disciplina in nombres %}
+        <li>{{disciplina.nombre}}</li>
+        <li>{{disciplina.categoria}}</li>
         <br>
     {% endfor %}
 </ul>
